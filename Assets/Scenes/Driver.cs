@@ -9,7 +9,7 @@ public class Driver : MonoBehaviour
     [SerializeField] float boostSpeed;
     [SerializeField] float speedCoolDown;
     [SerializeField] float rotateSpeed;
-
+    [SerializeField] float destroyCoolDown;
     float currentSpeed;
 
     void Start()
@@ -31,6 +31,7 @@ public class Driver : MonoBehaviour
         {
             currentSpeed = boostSpeed;
             StartCoroutine("RevertSpeedAfterDelay");
+            Destroy(collision.gameObject, destroyCoolDown);
         }
     }
 
